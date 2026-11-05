@@ -24,6 +24,15 @@ static func data_root() -> String:
 		else:
 			candidates.append(ProjectSettings.globalize_path("res://").path_join(override).simplify_path())
 
+	# Portable packages ship a portable.txt marker next to the executable. Keep
+	# caches beside the app instead of silently writing to AppData.
+	var executable_dir := OS.get_executable_path().get_base_dir()
+	if FileAccess.file_exists(executable_dir.path_join("portable.txt")):
+		var portable_dir := executable_dir.path_join("RollPlayData")
+		if _is_writable(portable_dir):
+			_root = portable_dir
+			return _root
+
 	candidates.append(ProjectSettings.globalize_path("user://"))
 	candidates.append(ProjectSettings.globalize_path("res://.userdata"))
 	candidates.append(OS.get_executable_path().get_base_dir().path_join("RollPlayData"))

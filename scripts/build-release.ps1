@@ -110,6 +110,11 @@ try {
         Write-Host "Exporting Windows release..."
         & $resolvedGodot --headless --path $projectRoot --export-release "Windows Desktop" (Join-Path $windowsDir "RollPlay.exe")
         if ($LASTEXITCODE -ne 0) { Fail "Windows export failed with exit code $LASTEXITCODE." }
+        # Never let a local metadata cache (or portable data folder) leak into a release.
+        foreach ($localDir in @(".userdata", "RollPlayData")) {
+            $localPath = Join-Path $windowsDir $localDir
+            if (Test-Path $localPath) { Remove-Item -LiteralPath $localPath -Recurse -Force }
+        }
         Copy-Licenses $windowsDir
         Write-Checksums $windowsDir "RollPlay.exe"
         Write-Host "Windows build ready: $windowsDir"
@@ -121,6 +126,10 @@ try {
         Write-Host "Exporting Linux release..."
         & $resolvedGodot --headless --path $projectRoot --export-release "Linux" (Join-Path $linuxDir "RollPlay.x86_64")
         if ($LASTEXITCODE -ne 0) { Fail "Linux export failed with exit code $LASTEXITCODE." }
+        foreach ($localDir in @(".userdata", "RollPlayData")) {
+            $localPath = Join-Path $linuxDir $localDir
+            if (Test-Path $localPath) { Remove-Item -LiteralPath $localPath -Recurse -Force }
+        }
         Copy-Licenses $linuxDir
         Write-Checksums $linuxDir "RollPlay.x86_64"
         Write-Host "Linux build ready: $linuxDir"

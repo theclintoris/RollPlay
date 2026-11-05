@@ -9,6 +9,14 @@ the odds.
 
 ![RollPlay idle screen](docs/screenshots/idle.png)
 
+## Download
+
+[Download the latest Windows portable build](https://github.com/theclintoris/RollPlay/releases/latest).
+Unzip it anywhere and run `RollPlay.exe`. The included `portable.txt` keeps
+metadata and cover caches in `RollPlayData` beside the app, so nothing is
+installed and no app data is written outside the folder. SHA-256 checksums are
+included in the ZIP and alongside it.
+
 ## What it does
 
 - Finds Steam through the Windows registry, environment overrides, and the
@@ -96,6 +104,15 @@ Godot writes a temporary `project.binary` during export. The script redirects
 sandboxed machines. On Linux, `chmod +x build/linux/RollPlay.x86_64` before
 archiving.
 
+To create the portable Windows ZIP after building:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\package-portable.ps1
+```
+
+This writes `build/portable/RollPlay-<version>-portable-win64.zip`, its
+`.sha256` checksum, a `portable.txt` marker, and a short portable readme.
+
 ## Tests
 
 The core logic has headless tests that do not launch a game:
@@ -132,10 +149,12 @@ Inside it:
 - `metadata_cache.json` — store names, genres, descriptions, header URLs.
 - `covers/` — 2:3 cover art, cached as JPEG.
 
-If that folder is not writable (portable installs, sandboxes, CI), RollPlay
-falls back to a `.userdata` folder beside the project or executable. You can
-force a location with the `ROLLPLAY_DATA_DIR` environment variable. To reset
-the cache, close the app and delete the folder. Steam files are never modified.
+If a `portable.txt` marker is present next to `RollPlay.exe` (the portable ZIP
+includes one), RollPlay uses `RollPlayData` beside the executable instead. If
+that folder is not writable, it falls back to `.userdata` beside the project or
+executable. You can force a location with the `ROLLPLAY_DATA_DIR` environment
+variable. To reset the cache, close the app and delete the folder. Steam files
+are never modified.
 
 ## How it works
 
