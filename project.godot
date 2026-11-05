@@ -1,0 +1,84 @@
+; Engine configuration file.
+; Vendored by RollPlay. Open this folder in Godot 4.7+ to edit.
+
+config_version=5
+
+[application]
+
+config/name="RollPlay"
+config/version="0.1.0"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://assets/branding/icon-512.png"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="RollPlay"
+boot_splash/bg_color=Color(0.043, 0.047, 0.047, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=true
+config/quit_on_go_back=false
+
+[autoload]
+
+SteamLibrary="*res://scripts/core/library_service.gd"
+CoverCache="*res://scripts/core/cover_cache.gd"
+
+[display]
+
+window/size/viewport_width=1440
+window/size/viewport_height=900
+window/size/window_width_override=1440
+window/size/window_height_override=900
+window/size/resizable=true
+window/size/borderless=false
+window/size/always_on_top=false
+window/size/transparent=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/dpi/allow_hidpi=true
+window/handheld/orientation=1
+
+[network]
+
+tls/certificate_bundle_override="res://assets/certs/cacert.pem"
+
+[gui]
+
+theme/custom_font=""
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
+theme/default_font_subpixel_positioning=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.043, 0.047, 0.047, 1)
+anti_aliasing/quality/msaa_2d=1
+environment/defaults/default_environment=""
+
+[audio]
+
+driver/enable_input=false
+
+[input]
+
+roll={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":82,"unicode":114,"key_label":0,"modifiers":0,"pressed":false,"strength":0,"echo":false,"script":null)
+]
+}
+close_overlay={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":4194305,"unicode":0,"key_label":0,"modifiers":0,"pressed":false,"strength":0,"echo":false,"script":null)
+]
+}
+
+[rollplay]
+
+steam/app_id=0
+metadata/cache_days=30
+
+[layer_names]
+
+2d_physics/layer_1="World"

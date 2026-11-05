@@ -1,0 +1,19 @@
+# Godot-generated editor cache
+.godot/
+
+# Local runtime data, downloaded store art, screenshots and temp captures
+.userdata*/
+.tmp_*
+*.tmp
+
+# Steam shortcut artwork (contains downloaded third-party game headers)
+steam-art/
+
+# Local builds and SteamPipe output
+build/
+steam/output/
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+*.swp

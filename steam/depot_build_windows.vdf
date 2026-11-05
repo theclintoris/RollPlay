@@ -1,0 +1,14 @@
+// RollPlay -- Windows depot mapping.
+// Replace YOUR_WINDOWS_DEPOT_ID. The content root is populated by
+// scripts/build-release.ps1 and includes RollPlay.exe, licenses and checksums.
+"DepotBuild"
+{
+    "DepotID" "YOUR_WINDOWS_DEPOT_ID"
+    "ContentRoot" "../build/windows"
+    "FileMapping"
+    {
+        "LocalPath" "*"
+        "DepotPath" "."
+        "Recursive" "1"
+    }
+}

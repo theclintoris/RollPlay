@@ -1,0 +1,55 @@
+# RollPlay — Third-Party Notices
+
+RollPlay is built with open-source software and fonts. This file is the
+attribution that ships with every RollPlay build. The full license texts are in
+the `licenses/` directory.
+
+## Godot Engine 4.7.2
+
+Copyright © 2014–present Godot Engine contributors.
+Copyright © 2007–2014 Juan Linietsky, Ariel Manzur.
+
+Godot is licensed under the MIT License. The engine binary is distributed with
+RollPlay. Full license: `licenses/GODOT_LICENSE.txt`.
+Full engine copyright and bundled third-party notices:
+`licenses/GODOT_COPYRIGHT.txt`.
+
+https://godotengine.org
+
+## Fonts — SIL Open Font License 1.1
+
+The following fonts are bundled as WOFF2 files and may not be sold on their own:
+
+- **Bricolage Grotesque** — Copyright 2022 The Bricolage Grotesque Project
+  Authors (https://github.com/ateliertriay/bricolage).
+- **DM Sans** — Copyright 2014 The DM Sans Project Authors
+  (https://github.com/googlefonts/dm-fonts).
+- **Instrument Serif** — Copyright 2022 The Instrument Serif Project Authors
+  (https://github.com/Instrument/instrument-serif).
+
+Full license: `licenses/OFL-bricolagegrotesque.txt`,
+`licenses/OFL-dmsans.txt`, `licenses/OFL-instrumentserif.txt`.
+SIL OFL FAQ: https://scripts.sil.org/OFL
+
+## CA certificate bundle
+
+RollPlay ships `assets/certs/cacert.pem` so HTTPS requests to the public Steam
+Store API verify consistently on every machine. The bundle is the Mozilla CA
+certificate store as curated by the curl project.
+
+- Source: https://curl.se/ca/cacert.pem
+- Mozilla CA certificate policy: https://www.mozilla.org/projects/security/certs/policy/
+- License: Mozilla Public License 2.0 — full text in `licenses/MPL-2.0.txt`.
+
+The certificate bundle is data used for TLS verification. It is not modified by
+RollPlay.
+
+## Steam assets and metadata
+
+RollPlay reads the public store metadata and cover art for games the user
+already owns. Store descriptions, cover images, and game names remain the
+property of their respective owners. RollPlay does not redistribute Steam game
+art in its executable.
+
+Steam and the Steam logo are trademarks of Valve Corporation. RollPlay is not
+affiliated with, endorsed by, or sponsored by Valve.

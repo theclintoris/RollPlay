@@ -1,0 +1,15 @@
+// RollPlay -- Linux depot mapping.
+// Replace YOUR_LINUX_DEPOT_ID. The content root is populated by
+// scripts/build-release.ps1; make the binary executable before archiving:
+//   chmod +x build/linux/RollPlay.x86_64
+"DepotBuild"
+{
+    "DepotID" "YOUR_LINUX_DEPOT_ID"
+    "ContentRoot" "../build/linux"
+    "FileMapping"
+    {
+        "LocalPath" "*"
+        "DepotPath" "."
+        "Recursive" "1"
+    }
+}
